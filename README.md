@@ -1,4 +1,4 @@
-# SmartLibrarySystemWIA1002
+# Smart Library System
 
 A simple library management system built in Java using a Binary Search Tree (BST) for the book catalogue and a Stack for borrow history.
 
@@ -24,19 +24,57 @@ A simple library management system built in Java using a Binary Search Tree (BST
 Run `Main.java`. A text menu will appear in the terminal.
 
 ### GUI version (JavaFX)
-Run `LibraryGUI.java` directly, **or** change `Main.java` to:
 
-```java
-import javafx.application.Application;
+**Step 1 — Install JDK 21**
 
-public class Main {
-    public static void main(String[] args) {
-        Application.launch(LibraryGUI.class, args);
-    }
+Download the **ARM64 DMG Installer** (Apple Silicon) or **x64 DMG Installer** (Intel) from:
+https://www.oracle.com/java/technologies/downloads/#java21
+
+**Step 2 — Download JavaFX 21 SDK**
+
+Download **JavaFX 21 SDK** for your Mac from:
+https://gluonhq.com/products/javafx/
+
+Extract it to your Downloads folder. The folder will be named something like `javafx-sdk-21.0.11`.
+
+**Step 3 — Configure VS Code**
+
+Add the JavaFX jars to `.vscode/settings.json`:
+
+```json
+{
+    "java.project.referencedLibraries": [
+        "/Users/YOUR_USERNAME/Downloads/javafx-sdk-21.0.11/lib/*.jar"
+    ]
 }
 ```
 
-> **Note:** JavaFX must be added to your project. In IntelliJ: File → Project Structure → Libraries → add the JavaFX SDK.
+**Step 4 — Configure the run launcher**
+
+Create `.vscode/launch.json` with the following (replace the path with your actual JavaFX folder name):
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "LibraryGUI",
+            "request": "launch",
+            "mainClass": "smartlibrary.LibraryGUI",
+            "vmArgs": "--module-path /Users/YOUR_USERNAME/Downloads/javafx-sdk-21.0.11/lib --add-modules javafx.controls"
+        }
+    ]
+}
+```
+
+> **Tip:** To find your exact JavaFX folder name, run `ls ~/Downloads | grep javafx` in the terminal.
+
+**Step 5 — Clean and reload**
+
+Press `Cmd+Shift+P` → `Java: Clean Java Language Server Workspace` → **Reload and delete**.
+
+Then run `LibraryGUI.java` using the Run and Debug panel.
 
 ---
 
