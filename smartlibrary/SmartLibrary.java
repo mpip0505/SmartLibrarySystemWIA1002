@@ -1,6 +1,12 @@
+package smartlibrary;
 //package smartlibrary;
 
 import java.io.*;
+
+import smartlibrary.Book;
+import smartlibrary.BookBST;
+import smartlibrary.BorrowStack;
+import smartlibrary.LibraryADT;
 import java.util.Scanner;
 
 public class SmartLibrary implements LibraryADT {
